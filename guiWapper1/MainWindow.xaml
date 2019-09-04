@@ -23,5 +23,9 @@
 
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="25" FontFamily="papyrus">Git Slime</TextBlock>
+        <Button Grid.Row="1">Init</Button>
+        <Button Grid.Row="2">Add</Button>
+        <Button Grid.Row="3">Push</Button>
+        <Button Grid.Row="4">Pull</Button>
     </Grid>
 </Window>
