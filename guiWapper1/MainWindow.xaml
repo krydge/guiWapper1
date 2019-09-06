@@ -8,8 +8,9 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -18,28 +19,43 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
 
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="25" FontFamily="papyrus">Git Slime</TextBlock>
+        <TextBox Grid.Row="0"
+                          Grid.ColumnSpan="3"
+                          HorizontalAlignment="Center"
+                          FontSize="25"
+                          FontFamily="papyrus">Git Slime</TextBox>
         <Button Grid.Row="1">Init</Button>
-        <TextBlock Grid.Column="1" Grid.Row="1"
+        <TextBox Grid.Column="1" Grid.Row="1"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="center">enter something</TextBlock>
+                   VerticalAlignment="center"
+                 Grid.ColumnSpan="2">enter something</TextBox>
         <Button Grid.Row="2">Add</Button>
-        <TextBlock Grid.Column="1" Grid.Row="2"
+        <TextBox Grid.Column="1" Grid.Row="2"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="center">enter something</TextBlock>
+                   VerticalAlignment="center"
+                 Grid.ColumnSpan="2">enter something</TextBox>
         <Button Grid.Row="3">Push</Button>
-        <TextBlock Grid.Column="1" Grid.Row="3"
+        <TextBox Grid.Column="1" Grid.Row="3"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="center">enter something</TextBlock>
+                   VerticalAlignment="center"
+                 Grid.ColumnSpan="2">enter something</TextBox>
         <Button Grid.Row="4">Pull</Button>
-        <TextBlock Grid.Column="1" Grid.Row="4"
+        <TextBox Grid.Column="1" Grid.Row="4"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="center">enter something</TextBlock>
-        <TextBox Grid.ColumnSpan="2"
-                 Grid.Row="5"></TextBox>
+                   VerticalAlignment="center"
+                 Grid.ColumnSpan="2">enter something</TextBox>
+        
+        <Button Grid.Row="5">Status</Button>
+        <Button Grid.Row="5"
+                Grid.Column="1">Log</Button>
+        <TextBlock 
+                 Grid.Row="6"
+                   MinHeight="200"
+                   Grid.ColumnSpan="3">Output</TextBlock>
     </Grid>
+ 
 </Window>
