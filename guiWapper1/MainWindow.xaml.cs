@@ -43,7 +43,7 @@ namespace guiWapper1
             //procStartInfo.UseShellExecute = false;
             //procStartInfo.CreateNoWindow = true;
 
-            // wrap IDisposable into using (in order to release hProcess) 
+            // wrap IDisposable into using (in order to release hProcess)
             using (Process process = new Process())
             {
                 process.StartInfo.RedirectStandardOutput = true;
@@ -58,8 +58,8 @@ namespace guiWapper1
                 while (process.StandardOutput.Peek() > -1 && wait < 1000)
                 {
                     text = process.StandardOutput.ReadLine();
-                    if (text.StartsWith("+++") || 
-                        text.StartsWith("---") || 
+                    if (text.StartsWith("+++") ||
+                        text.StartsWith("---") ||
                         text.StartsWith("diff") ||
                         text.StartsWith("index"))
                     {
@@ -89,7 +89,7 @@ namespace guiWapper1
                 }
 
                 //while (process.StandardError.Peek() > -1)
-                //{ 
+                //{
                 //    OutputBlock.Foreground = Brushes.Red;
                 //    OutputBlock.Text += process.StandardOutput.ReadLine();
                 //}
