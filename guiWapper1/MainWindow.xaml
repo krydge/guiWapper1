@@ -48,13 +48,17 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="center"
                  Grid.ColumnSpan="2">enter something</TextBox>
-        
-        <Button Grid.Row="5">Status</Button>
+
+        <Button Grid.Row="5" 
+                Grid.Column="1">Status</Button>
         <Button Grid.Row="5"
-                Grid.Column="1">Log</Button>
+                Grid.Column="2"
+                MinWidth="37"
+                MaxWidth="50">Log</Button>
         <TextBlock 
                  Grid.Row="6"
                    MinHeight="200"
+           
                    Grid.ColumnSpan="3">Output</TextBlock>
     </Grid>
  
