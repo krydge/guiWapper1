@@ -14,7 +14,7 @@
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition MaxHeight="30"></RowDefinition>
+            <RowDefinition MaxHeight="50"></RowDefinition>
             <RowDefinition MaxHeight="30"></RowDefinition>
             <RowDefinition MaxHeight="30"></RowDefinition>
             <RowDefinition MaxHeight="30"></RowDefinition>
@@ -25,6 +25,8 @@
 
         </Grid.RowDefinitions>
 
+        <Image Source="C:\Users\kaydon.stubbs\Source\Repos\guiWapper13\guiWapper1\icons\Git slime icon.png"
+               Height="50"></Image>
         <TextBlock Grid.Row="0"
                     Grid.ColumnSpan="3"
                     HorizontalAlignment="Center"
