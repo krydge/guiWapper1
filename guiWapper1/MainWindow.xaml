@@ -14,7 +14,7 @@
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition MaxHeight="50"></RowDefinition>
+            <RowDefinition MaxHeight="80"></RowDefinition>
             <RowDefinition MaxHeight="30"></RowDefinition>
             <RowDefinition MaxHeight="30"></RowDefinition>
             <RowDefinition MaxHeight="30"></RowDefinition>
@@ -25,13 +25,24 @@
 
         </Grid.RowDefinitions>
 
-        <Image Source="C:\Users\kaydon.stubbs\Source\Repos\guiWapper13\guiWapper1\icons\Git slime icon.png"
-               Height="50"></Image>
-        <TextBlock Grid.Row="0"
-                    Grid.ColumnSpan="3"
+        <StackPanel Orientation="Horizontal" 
                     HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="3"
+                    >
+            <Image  Source="icons\Git slime icon.png"
+                    Height="55"
+                    Margin="5"/>
+            <TextBlock HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                     FontSize="25"
-                    FontFamily="papyrus" Text="Git Slime"/>
+                       FontFamily="Papyrus"
+                    Text="Git Slime"
+                    />
+
+
+        </StackPanel>
 
         <TextBlock Grid.Row="1" 
                    Grid.Column="0"
