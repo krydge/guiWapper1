@@ -14,7 +14,7 @@
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition MaxHeight="80"></RowDefinition>
+            <RowDefinition MaxHeight="80" ></RowDefinition>
             <RowDefinition MaxHeight="30"></RowDefinition>
             <RowDefinition MaxHeight="30"></RowDefinition>
             <RowDefinition MaxHeight="30"></RowDefinition>
@@ -26,10 +26,11 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" 
-                    HorizontalAlignment="Center"
+                    HorizontalAlignment="Stretch"
                     VerticalAlignment="Center"
                     Grid.Row="0"
                     Grid.ColumnSpan="3"
+                    Background="LightBlue"
                     >
             <Image  Source="icons\Git slime icon.png"
                     Height="55"
