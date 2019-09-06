@@ -33,9 +33,9 @@ namespace guiWapper1
 
         }
 
-        private void LogReport_Click(object sender, RoutedEventArgs e)
+        private async void LogReport_Click(object sender, RoutedEventArgs e)
         {
-            var command = "git log -p c:/aqdev/ver15";
+            var command = "cd o:; git log --max-count=1 -p";
             System.Diagnostics.Process pProcess = new System.Diagnostics.Process();
             //ProcessStartInfo procStartInfo = new ProcessStartInfo("cmd", "/c " + command);
 
@@ -47,34 +47,47 @@ namespace guiWapper1
             using (Process process = new Process())
             {
                 process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardError = true;
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.CreateNoWindow = true;
-                process.StartInfo.Arguments = "git log c:/aqdev/ver15";
-                process.StartInfo.FileName = "cmd";
+                process.StartInfo.Arguments = command;
+                process.StartInfo.FileName = "powershell.exe";
                 process.Start();
+                string text;
+                int wait = 0;
+                while (process.StandardOutput.Peek() > -1 && wait < 1000)
+                {
+                    text = process.StandardOutput.ReadLine();
+                    if (text.StartsWith("+"))
+                    {
+                        Run run = new Run("\n" + text);
+                        run.Foreground = Brushes.Green;
+                        OutputBlock.Inlines.Add(run);
+                    }
+                    else if (text.StartsWith("-"))
+                    {
+                        Run run = new Run("\n" + text);
+                        run.Foreground = Brushes.Red;
+                        OutputBlock.Inlines.Add(run);
+                    }
+                    else
+                    {
+                        Run run = new Run("\n" + text);
+                        run.Foreground = Brushes.Black;
+                        OutputBlock.Inlines.Add(run);
+                    }
+                    wait++;
+                }
 
-                ////strCommand is path and file name of command to run
-                //pProcess.StartInfo.FileName = "cmd";
+                //while (process.StandardError.Peek() > -1)
+                //{ 
+                //    OutputBlock.Foreground = Brushes.Red;
+                //    OutputBlock.Text += process.StandardOutput.ReadLine();
+                //}
+                //process.WaitForExit();
+                    //Wait for process to finish
+                //}
 
-                ////strCommandParameters are parameters to pass to program
-                //pProcess.StartInfo.Arguments = command;
-
-                //pProcess.StartInfo.UseShellExecute = false;
-
-                ////Set output of program to be written to process output stream
-                //pProcess.StartInfo.RedirectStandardOutput = true;
-                //pProcess.StartInfo.CreateNoWindow = true;
-                //Process.Start("git", @"log c:/aqdev/ver15");
-
-
-                //Start the process
-                //pProcess.Start();
-
-                //Get program output
-                //OutputBlock.Text += pProcess.StandardOutput.ReadLine();
-                OutputBlock.Text = process.StandardOutput.ReadLine();
-
-                //Wait for process to finish
                 //process.WaitForExit();
             }
         }
