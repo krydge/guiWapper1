@@ -8,58 +8,108 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition MaxHeight="30"></RowDefinition>
+            <RowDefinition MaxHeight="30"></RowDefinition>
+            <RowDefinition MaxHeight="30"></RowDefinition>
+            <RowDefinition MaxHeight="30"></RowDefinition>
+            <RowDefinition MaxHeight="30"></RowDefinition>
+            <RowDefinition MaxHeight="30"></RowDefinition>
+            <RowDefinition MaxHeight="20"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
 
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="0"
-                          Grid.ColumnSpan="3"
-                          HorizontalAlignment="Center"
-                          FontSize="25"
-                          FontFamily="papyrus">Git Slime</TextBox>
-        <Button Grid.Row="1">Init</Button>
-        <TextBox Grid.Column="1" Grid.Row="1"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="center"
-                 Grid.ColumnSpan="2">enter something</TextBox>
-        <Button Grid.Row="2">Add</Button>
-        <TextBox Grid.Column="1" Grid.Row="2"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="center"
-                 Grid.ColumnSpan="2">enter something</TextBox>
-        <Button Grid.Row="3">Push</Button>
-        <TextBox Grid.Column="1" Grid.Row="3"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="center"
-                 Grid.ColumnSpan="2">enter something</TextBox>
-        <Button Grid.Row="4">Pull</Button>
+
+        <TextBlock Grid.Row="0"
+                    Grid.ColumnSpan="3"
+                    HorizontalAlignment="Center"
+                    FontSize="25"
+                    FontFamily="papyrus" Text="Git Slime"/>
+
+        <TextBlock Grid.Row="1" 
+                   Grid.Column="0"
+                   FontSize="15"
+                   FontWeight="DemiBold"
+                   Margin="5 0 5 0"
+                   VerticalAlignment="Center" Text="Repository Location"/>
+        <TextBox Grid.Column="1" 
+                 Grid.Row="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Grid.ColumnSpan="2" 
+                    TextWrapping="Wrap"
+                    Text="{Binding RepoLocation}"></TextBox>
+
+        <Button     Grid.Row="2" 
+                    Content="Initialize Repository"
+                    Click="InitRepo_Click"/>
+        
+        <!--<TextBox    Grid.Column="1" 
+                    Grid.Row="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Grid.ColumnSpan="2" 
+                    TextWrapping="Wrap"
+                    Text="{Binding Init}">enter something</TextBox>-->
+
+        <Button     Grid.Row="3" 
+                    Content="Add Items"
+                    Click="AddItem_Click"/>
+
+        <TextBox    Grid.Column="1" 
+                    Grid.Row="3"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="center"
+                    Grid.ColumnSpan="2"
+                    Text="{Binding AddEntry}"/>
+
+        <Button     Grid.Row="4" 
+                    Content="Commit Repo (git commit -am)"
+                    Click="Commit_Click"/>
+
+        <TextBox    Grid.Column="1" Grid.Row="4"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="center"
+                    Grid.ColumnSpan="2"
+                    Text="{Binding CommitMessage}"/>
+        <!--<Button Grid.Row="4">Pull Repo</Button>
         <TextBox Grid.Column="1" Grid.Row="4"
                    HorizontalAlignment="Center"
                    VerticalAlignment="center"
-                 Grid.ColumnSpan="2">enter something</TextBox>
+                 Grid.ColumnSpan="2">enter something</TextBox>-->
 
-        <Button Grid.Row="5" 
-                Grid.Column="1">Status</Button>
-        <Button Grid.Row="5"
-                Grid.Column="2"
-                MinWidth="37"
-                MaxWidth="50">Log</Button>
+        <Button     Grid.Row="5" 
+                    Grid.Column="0"
+                    Click="StatusReport_Click" Content="Status"></Button>
+        <Button     Grid.Row="5"
+                    Margin="10 0 10 0"
+                    Grid.Column="1"
+                    MinWidth="150"
+                    MaxWidth="200"
+                    Click="LogReport_Click"
+                    Content="Log"/>
         <TextBlock 
-                 Grid.Row="6"
-                   MinHeight="200"
-           
-                   Grid.ColumnSpan="3">Output</TextBlock>
+                    Grid.Row="6"
+                    Grid.ColumnSpan="3"
+                    Text="Output"
+                    FontWeight="Bold"
+                    FontStyle="Italic"
+                    FontSize="15"
+                    Background="Orange"/>
+        <ScrollViewer   Grid.Row="7"
+                        Grid.ColumnSpan="3"
+                        >
+            <TextBlock  x:Name="OutputBlock"
+                        MinHeight="200" 
+                        Text="{Binding OutputText}"
+                        Background="PaleGoldenrod">
+            </TextBlock>
+        </ScrollViewer>
     </Grid>
  
 </Window>
