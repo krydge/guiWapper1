@@ -58,7 +58,16 @@ namespace guiWapper1
                 while (process.StandardOutput.Peek() > -1 && wait < 1000)
                 {
                     text = process.StandardOutput.ReadLine();
-                    if (text.StartsWith("+"))
+                    if (text.StartsWith("+++") || 
+                        text.StartsWith("---") || 
+                        text.StartsWith("diff") ||
+                        text.StartsWith("index"))
+                    {
+                        Run run = new Run("\n" + text);
+                        run.Foreground = Brushes.Yellow;
+                        OutputBlock.Inlines.Add(run);
+                    }
+                    else if (text.StartsWith("+"))
                     {
                         Run run = new Run("\n" + text);
                         run.Foreground = Brushes.Green;
@@ -73,7 +82,7 @@ namespace guiWapper1
                     else
                     {
                         Run run = new Run("\n" + text);
-                        run.Foreground = Brushes.Black;
+                        run.Foreground = Brushes.White;
                         OutputBlock.Inlines.Add(run);
                     }
                     wait++;
@@ -88,7 +97,7 @@ namespace guiWapper1
                     //Wait for process to finish
                 //}
 
-                //process.WaitForExit();
+                process.WaitForExit();
             }
         }
 

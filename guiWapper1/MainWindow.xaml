@@ -107,7 +107,7 @@
             <TextBlock  x:Name="OutputBlock"
                         MinHeight="200" 
                         Text="{Binding OutputText}"
-                        Background="PaleGoldenrod">
+                        Background="Black">
             </TextBlock>
         </ScrollViewer>
     </Grid>
