@@ -3,9 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
         xmlns:local="clr-namespace:guiWapper1"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -25,7 +30,7 @@
 
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" 
+        <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Center"
                     Grid.Row="0"
@@ -45,46 +50,46 @@
 
         </StackPanel>
 
-        <TextBlock Grid.Row="1" 
+        <TextBlock Grid.Row="1"
                    Grid.Column="0"
                    FontSize="15"
                    FontWeight="DemiBold"
                    Margin="5 0 5 0"
                    VerticalAlignment="Center" Text="Repository Location"/>
-        <TextBox Grid.Column="1" 
+        <TextBox Grid.Column="1"
                  Grid.Row="1"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Center"
-                    Grid.ColumnSpan="2" 
+                    Grid.ColumnSpan="2"
                     TextWrapping="Wrap"
                     Text="{Binding RepoLocation}"></TextBox>
 
-        <Button     Grid.Row="2" 
+        <Button     Grid.Row="2"
                     Content="Initialize Repository"
-                    Click="InitRepo_Click"/>
-        
-        <!--<TextBox    Grid.Column="1" 
+                    Command="{Binding onClickInit}"/>
+
+        <!--<TextBox    Grid.Column="1"
                     Grid.Row="2"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Center"
-                    Grid.ColumnSpan="2" 
+                    Grid.ColumnSpan="2"
                     TextWrapping="Wrap"
                     Text="{Binding Init}">enter something</TextBox>-->
 
-        <Button     Grid.Row="3" 
+        <Button     Grid.Row="3"
                     Content="Add Items"
-                    Click="AddItem_Click"/>
+                    Command="{Binding onClickAdd}"/>
 
-        <TextBox    Grid.Column="1" 
+        <TextBox    Grid.Column="1"
                     Grid.Row="3"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="center"
                     Grid.ColumnSpan="2"
-                    Text="{Binding AddEntry}"/>
+                    Text="{Binding AddMessage}"/>
 
-        <Button     Grid.Row="4" 
+        <Button     Grid.Row="4"
                     Content="Commit Repo (git commit -am)"
-                    Click="Commit_Click"/>
+                    Command="{Binding onClickCommit}"/>
 
         <TextBox    Grid.Column="1" Grid.Row="4"
                     HorizontalAlignment="Stretch"
@@ -97,17 +102,18 @@
                    VerticalAlignment="center"
                  Grid.ColumnSpan="2">enter something</TextBox>-->
 
-        <Button     Grid.Row="5" 
+        <Button     Grid.Row="5"
                     Grid.Column="0"
-                    Click="StatusReport_Click" Content="Status"></Button>
+                    Command="{Binding onClickStatus}"
+                    Content="Status"></Button>
         <Button     Grid.Row="5"
                     Margin="10 0 10 0"
                     Grid.Column="1"
                     MinWidth="150"
-                    MaxWidth="200"
-                    Click="LogReport_Click"
+                    MaxWidth="200" 
+                    Command="{Binding onClickLog}"
                     Content="Log"/>
-        <TextBlock 
+        <TextBlock
                     Grid.Row="6"
                     Grid.ColumnSpan="3"
                     Text="Output"
@@ -115,15 +121,18 @@
                     FontStyle="Italic"
                     FontSize="15"
                     Background="Orange"/>
-        <ScrollViewer   Grid.Row="7"
+        
+            <ScrollViewer   Grid.Row="7"
                         Grid.ColumnSpan="3"
                         >
+
             <TextBlock  x:Name="OutputBlock"
-                        MinHeight="200" 
-                        Text="{Binding OutputText}"
-                        Background="Black">
+                        MinHeight="200"
+                        Text="{Binding Output}"
+                        Background="Black"
+                        Foreground="White">
             </TextBlock>
         </ScrollViewer>
     </Grid>
- 
+
 </Window>

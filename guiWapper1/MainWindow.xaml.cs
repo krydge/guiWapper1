@@ -1,4 +1,5 @@
-﻿using System;
+﻿using guiWapper1.Model;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -26,15 +27,38 @@ namespace guiWapper1
             InitializeComponent();
         }
 
-        private void StatusReport_Click(object sender, RoutedEventArgs e)
+        private void CreateColors(List<OutputLine> list)
         {
-            //var message = "YEET";
-            Background = Brushes.AliceBlue;
+            foreach (OutputLine line in list)
+            {
+                Run run = new Run("\n" + line.LineText );
+                switch(line.Color)
+                {
+                    case colors.WHITE:
 
+                        run.Foreground = Brushes.White;
+                        break;
+                    case colors.YELLOW:
+
+                        run.Foreground = Brushes.Yellow;
+                        break;
+                    case colors.GREEN:
+
+                        run.Foreground = Brushes.Green;
+                        break;
+                    case colors.RED:
+
+                        run.Foreground = Brushes.Red;
+                        break;
+
+                }
+                OutputBlock.Inlines.Add(run);
+            }
         }
 
-        private async void LogReport_Click(object sender, RoutedEventArgs e)
+        private void LogReport_Click(object sender, RoutedEventArgs e)
         {
+            OutputBlock.Inlines.Clear();
             var command = "cd o:; git log --max-count=1 -p";
             System.Diagnostics.Process pProcess = new System.Diagnostics.Process();
             //ProcessStartInfo procStartInfo = new ProcessStartInfo("cmd", "/c " + command);
@@ -94,7 +118,7 @@ namespace guiWapper1
                 //    OutputBlock.Text += process.StandardOutput.ReadLine();
                 //}
                 //process.WaitForExit();
-                    //Wait for process to finish
+                //Wait for process to finish
                 //}
 
                 process.WaitForExit();
