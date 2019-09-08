@@ -32,7 +32,7 @@
 
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center"
+                    VerticalAlignment="Stretch"
                     Grid.Row="0"
                     Grid.ColumnSpan="3"
                     Background="LightBlue"
@@ -46,11 +46,22 @@
                        FontFamily="Papyrus"
                     Text="Git Slime"
                     />
+            
 
 
         </StackPanel>
+        <CheckBox x:Name="darkmode"
+                  Grid.Column="2"
+                      Content="DarkMode"
+                      HorizontalAlignment="Right"
+                      VerticalAlignment="Center"
+                    Margin="0 0 20 0"
+                    IsChecked="False" 
+                  Checked="darkModeActivated"
+                  Unchecked="darkModeActivated"/>
 
-        <TextBlock Grid.Row="1"
+        <TextBlock x:Name="locationTitle" 
+                   Grid.Row="1"
                    Grid.Column="0"
                    FontSize="15"
                    FontWeight="DemiBold"
