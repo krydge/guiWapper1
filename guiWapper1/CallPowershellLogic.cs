@@ -90,7 +90,7 @@ namespace guiWapper1
                 OutputLine outputLineStuff = new OutputLine();
                 List<OutputLine> outline = new List<OutputLine>();
 
-                var command = "git commit -am "+ "\"" + message + "\"";
+                var command = "git commit -am " + message;
                 var text = CreatePowershell.DewProcess(directory, command);
                 text = CreatePowershell.DewProcess(directory, "git status");
 
