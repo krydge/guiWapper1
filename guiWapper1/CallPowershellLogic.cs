@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Media;
 
 namespace guiWapper1
@@ -110,6 +112,33 @@ namespace guiWapper1
                 return text;
             }
             return "BROKE";
+        }
+        public string FileSearch_Click(string directory)
+        {
+            if (directory != "" && directory != null)
+            {
+                //OutputLine outputLineStuff = new OutputLine();
+                //List<OutputLine> outline = new List<OutputLine>();
+                string filePath = directory;
+                var openFolderDlg = new FolderBrowserDialog();
+                {
+                    openFolderDlg.RootFolder = Environment.SpecialFolder.UserProfile;
+                    openFolderDlg.ShowNewFolderButton = false;// = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                    openFolderDlg.Description = "Locate the directory for your repository";
+                    
+                    //var ret = openFileDialog.ShowDialog() == DialogResult.OK;
+                    if (openFolderDlg.ShowDialog() == DialogResult.OK)
+                    {
+                        //Get the pathof specified file
+                        filePath = openFolderDlg.SelectedPath;
+                        filePath = filePath.Replace("\\", "/");
+
+                    }
+                }
+                //var text = CreatePowershell.DewProcess(directory);
+                return filePath;
+            }
+            return directory;
         }
 
     }

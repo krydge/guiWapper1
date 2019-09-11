@@ -11,7 +11,7 @@ namespace guiWapper1
 {
     public class MainWindowViewModel : BindableBase 
     {
-        private string repoLocation;
+        private string repoLocation = "C:";
 
         public MainWindowViewModel()
         {
@@ -39,6 +39,11 @@ namespace guiWapper1
             onClickCommit = new DelegateCommand(
              //execute
              () => Output = callPowershellLogic.CommitReport_Click(RepoLocation, CommitMessage)
+
+             );
+            onClickFileSearch = new DelegateCommand(
+             //execute
+             () => RepoLocation = callPowershellLogic.FileSearch_Click(RepoLocation)
 
              );
         }
@@ -77,6 +82,7 @@ namespace guiWapper1
         public DelegateCommand onClickAdd { get; set; }
         public DelegateCommand onClickInit { get; set; }
         public DelegateCommand onClickCommit { get; set; }
+        public DelegateCommand onClickFileSearch { get; set; }
 
         private List<OutputLine> output1;
 
