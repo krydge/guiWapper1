@@ -25,6 +25,7 @@ namespace guiWapper1
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<OutputView>();
+            containerRegistry.RegisterForNavigation<ValidationView>();
         }
 
         protected override void ConfigureServiceLocator()
