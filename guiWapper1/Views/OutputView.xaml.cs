@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Shared
+namespace guiWapper1.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for OutputView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OutputView : UserControl
     {
-        public MainWindow()
+        public OutputView()
         {
             InitializeComponent();
         }

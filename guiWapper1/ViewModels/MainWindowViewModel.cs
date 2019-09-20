@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace guiWapper1
+namespace guiWapper1.ViewModels
 {
     public class MainWindowViewModel : BindableBase 
     {
