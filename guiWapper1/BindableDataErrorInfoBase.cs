@@ -20,7 +20,7 @@ namespace guiWapper1
         {
             get
             {
-                if (ErrorDictionary.ContainsKey(columnName))
+               if (ErrorDictionary.ContainsKey(columnName))
                     return ErrorDictionary[columnName];
                 return null;
             }
