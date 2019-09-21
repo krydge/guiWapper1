@@ -33,14 +33,14 @@ namespace guiWapper1.Views
             if ((bool)isChecked)
             {
                 Background = Brushes.DarkSlateGray;
-                locationTitle.Foreground = Brushes.White;
+                //locationTitle.Foreground = Brushes.White;
 
             }
             else
             {
                 Background = Brushes.AliceBlue;
 
-                locationTitle.Foreground = Brushes.Black;
+                //locationTitle.Foreground = Brushes.Black;
             }
         }
 
