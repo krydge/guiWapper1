@@ -6,8 +6,7 @@
              xmlns:local="clr-namespace:guiWapper1.Views"
              mc:Ignorable="d" 
              xmlns:prism="http://prismlibrary.com/"
-             prism:ViewModelLocator.AutoWireViewModel="True"
-             d:DesignHeight="450" d:DesignWidth="800">
+             prism:ViewModelLocator.AutoWireViewModel="True">
     <StackPanel>
         <TextBlock
                    
@@ -16,12 +15,11 @@
                     FontStyle="Italic"
                     FontSize="15"
                     Background="Orange"/>
-        
-        
-            <ScrollViewer>
+
+
+        <ScrollViewer Height="180">
 
             <TextBlock  x:Name="OutputBlock"
-                        MinHeight="200"
                         Text="{Binding Output}"
                         Background="Black"
                         Foreground="White">

@@ -139,33 +139,10 @@
                     Content="Log"/>
 
         <StackPanel Grid.Row="7"
-                    Grid.ColumnSpan="3"
-                    Height="200">
+                    Grid.ColumnSpan="3">
             <views:OutputView />
             <ContentControl prism:RegionManager.RegionName="ContentRegion" />
         </StackPanel>
-
-        <!--<TextBlock
-                    Grid.Row="6"
-                    Grid.ColumnSpan="3"
-                    Text="Output"
-                    FontWeight="Bold"
-                    FontStyle="Italic"
-                    FontSize="15"
-                    Background="Orange"/>
-        
-        
-            <ScrollViewer   Grid.Row="7"
-                        Grid.ColumnSpan="3"
-                        >
-
-            <TextBlock  x:Name="OutputBlock"
-                        MinHeight="200"
-                        Text="{Binding Output}"
-                        Background="Black"
-                        Foreground="White">
-            </TextBlock>
-        </ScrollViewer>-->
     </Grid>
 
 </Window>
