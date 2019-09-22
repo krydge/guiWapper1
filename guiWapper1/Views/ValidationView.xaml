@@ -21,11 +21,11 @@
 
         <ScrollViewer>
 
-            <TextBlock  x:Name="OutputBlock"
+            <TextBlock  x:Name="ErrorBlock"
                         MinHeight="200"
-                        Text="{Binding Output}"
-                        Background="Black"
-                        Foreground="White">
+                        Background="Gray"
+                        Foreground="Red"
+                        Text="{Binding ErrorList}">
             </TextBlock>
         </ScrollViewer>
     </StackPanel>

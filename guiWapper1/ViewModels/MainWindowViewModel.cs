@@ -141,6 +141,24 @@ namespace guiWapper1.ViewModels
                 ErrorDictionary[nameof(RepoLocation)] = value;
                 repoErrorVisibility = value?.Length > 0 ? Visibility.Collapsed : Visibility.Visible;
                 RepoButtonDisable = RepoErrorVisibility.Equals(Visibility.Collapsed) ? false : true;
+                ErrorList = Error;
+            }
+        }
+        public string ErrorList
+        {
+            get { return errorList; }
+            set
+            {
+                if (value.Length == 0)
+                { 
+                    regionManager.RequestNavigate("ContentRegion", "OutputView");
+                }
+                else
+                {
+                    regionManager.RequestNavigate("ContentRegion", "ValidationView");
+                }
+                SetProperty(ref errorList, value);
+                RaisePropertyChanged();
             }
         }
         private string commitError;
@@ -153,6 +171,7 @@ namespace guiWapper1.ViewModels
                 ErrorDictionary[nameof(CommitMessage)] = value;
                 commitErrorVisibility = value?.Length > 0 ? Visibility.Collapsed : Visibility.Visible;
                 CommitButtonDisable = CommitErrorVisibility.Equals(Visibility.Collapsed) ? false : true;
+                ErrorList = Error;
             }
         }
 
@@ -186,6 +205,7 @@ namespace guiWapper1.ViewModels
         private Visibility repoErrorVisibility;
         private bool repoButtonDisable;
         private bool commitButtonDisable;
+        private string errorList;
 
         public Visibility RepoErrorVisibility
         {

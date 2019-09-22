@@ -10,22 +10,32 @@ using System.Threading.Tasks;
 
 namespace guiWapper1.ViewModels
 {
-    public class ValidationViewModel : BindableDataErrorInfoBase
-    {
-        private readonly IRegionManager regionManager;
-        private readonly IEventAggregator eventAggragator;
+    //public class ValidationViewModel : BindableDataErrorInfoBase
+    //{
+    //    private readonly IRegionManager regionManager;
+    //    private readonly IEventAggregator eventAggragator;
+    //    private string errorList;
 
-        public DelegateCommand<string> NavagateToMessaging { get;}
+    //    public DelegateCommand<string> NavagateToMessaging { get;}
 
-        public ValidationViewModel(IRegionManager regionManager, IEventAggregator eventAggregator) {
-            this.regionManager = regionManager;
-            this.eventAggragator = eventAggregator;
-            NavagateToMessaging = new DelegateCommand<string>((Uri) =>
-            {
-                regionManager.RequestNavigate("ContentRegion", Uri);
+    //    public ValidationViewModel(IRegionManager regionManager, IEventAggregator eventAggregator) {
+    //        this.regionManager = regionManager;
+    //        this.eventAggragator = eventAggregator;
+    //        NavagateToMessaging = new DelegateCommand<string>((Uri) =>
+    //        {
+    //            regionManager.RequestNavigate("ContentRegion", Uri);
 
-            });
-        }
+    //        });
+    //    }
+    //    public string ErrorList
+    //    {
+    //        get { return errorList; }
+    //        set
+    //        {
+    //            SetProperty(ref errorList, value);
+    //            RaisePropertyChanged();
+    //        }
+    //    }
 
-    }
+    //}
 }
