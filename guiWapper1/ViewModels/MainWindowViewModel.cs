@@ -15,7 +15,7 @@ namespace guiWapper1.ViewModels
 {
     public class MainWindowViewModel : BindableDataErrorInfoBase 
     {
-        private string repoLocation = "C:";
+        private string repoLocation;
         private IRegionManager regionManager;
         private IEventAggregator eventAggragator;
         public DelegateCommand onClickStatus { get; set; }
@@ -31,6 +31,7 @@ namespace guiWapper1.ViewModels
         {
             this.regionManager = regionManager;
             this.eventAggragator = eventAggregator;
+            RepoLocation = "C:";
             NavagateToMessaging = new DelegateCommand<string>((Uri) =>
             {
                 regionManager.RequestNavigate("ContentRegion", Uri);
@@ -133,6 +134,7 @@ namespace guiWapper1.ViewModels
                 SetProperty(ref repoError, value);
                 ErrorDictionary[nameof(RepoLocation)] = value;
                 repoErrorVisibility = value?.Length > 0 ? Visibility.Collapsed : Visibility.Visible;
+                RepoButtonDisable = RepoErrorVisibility.Equals(Visibility.Collapsed) ? false : true;
             }
         }
         private string commitError;
@@ -144,6 +146,7 @@ namespace guiWapper1.ViewModels
                 SetProperty(ref commitError, value);
                 ErrorDictionary[nameof(CommitMessage)] = value;
                 commitErrorVisibility = value?.Length > 0 ? Visibility.Collapsed : Visibility.Visible;
+                CommitButtonDisable = CommitErrorVisibility.Equals(Visibility.Collapsed) ? false : true;
             }
         }
 
@@ -165,7 +168,7 @@ namespace guiWapper1.ViewModels
             get { return output; }
             set
             {
-                output = value;
+                SetProperty(ref output, value);
                 RaisePropertyChanged();
             }
         }
@@ -174,6 +177,8 @@ namespace guiWapper1.ViewModels
         //Visibility items
         private Visibility commitErrorVisibility;
         private Visibility repoErrorVisibility;
+        private bool repoButtonDisable;
+        private bool commitButtonDisable;
 
         public Visibility RepoErrorVisibility
         {
@@ -185,6 +190,23 @@ namespace guiWapper1.ViewModels
             get { return commitErrorVisibility; }
             set { SetProperty(ref commitErrorVisibility, value); }
         }
-
+        //enable buttons
+        //
+        public bool RepoButtonDisable
+        {
+            get { return repoButtonDisable; }
+            set
+            {
+                SetProperty(ref repoButtonDisable, value);
+            }
+        }
+        public bool CommitButtonDisable
+        {
+            get { return commitButtonDisable; }
+            set
+            {
+                SetProperty(ref commitButtonDisable, value);
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace guiWapper1.ViewModels
 {
-    class OutputViewModel : BindableBase
-    {
-    }
+    //class OutputViewModel : BindableBase
+    //{
+    //}
 }
