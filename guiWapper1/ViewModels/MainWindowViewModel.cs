@@ -18,13 +18,15 @@ namespace guiWapper1.ViewModels
         private string repoLocation;
         private IRegionManager regionManager;
         private IEventAggregator eventAggragator;
+        private DelegateCommand onError;
+
         public DelegateCommand onClickStatus { get; set; }
         public DelegateCommand onClickLog { get; set; }
         public DelegateCommand onClickAdd { get; set; }
         public DelegateCommand onClickInit { get; set; }
         public DelegateCommand onClickCommit { get; set; }
         public DelegateCommand onClickFileSearch { get; set; }
-        public DelegateCommand<string> NavagateToMessaging { get; }
+        public DelegateCommand<string> NavigateToMessaging { get; }
 
 
         public MainWindowViewModel(IRegionManager regionManager, IEventAggregator eventAggregator)
@@ -32,13 +34,16 @@ namespace guiWapper1.ViewModels
             this.regionManager = regionManager;
             this.eventAggragator = eventAggregator;
             RepoLocation = "C:";
-            NavagateToMessaging = new DelegateCommand<string>((Uri) =>
+            NavigateToMessaging = new DelegateCommand<string>((Uri) =>
             {
                 regionManager.RequestNavigate("ContentRegion", Uri);
+                //var outputView = regionManager.Regions["ContentRegion"].GetView("OutputView");
+                //regionManager.Regions["ContentRegion"].Remove(outputView);
 
             });
 
             var callPowershellLogic = new CallPowershellLogic();
+            
             onClickStatus = new DelegateCommand(
                //execute
                () => Output = callPowershellLogic.StatusReport_Click(RepoLocation)
@@ -88,6 +93,7 @@ namespace guiWapper1.ViewModels
                 }
                 SetProperty(ref repoLocation, value);
                 RaisePropertyChanged();
+
             }
         }
 
@@ -167,7 +173,8 @@ namespace guiWapper1.ViewModels
         {
             get { return output; }
             set
-            {
+            { 
+                regionManager.RequestNavigate("ContentRegion", "OutputView");
                 SetProperty(ref output, value);
                 RaisePropertyChanged();
             }
