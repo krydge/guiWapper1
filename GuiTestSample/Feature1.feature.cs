@@ -80,7 +80,7 @@ namespace GuiTestSample
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 8
- testRunner.Given("a user types \"this\" in a comment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("a user types (.*) in a comment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
  testRunner.When("the user clicks commit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
