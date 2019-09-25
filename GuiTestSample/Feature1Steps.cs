@@ -1,5 +1,6 @@
 using guiWapper1.ViewModels;
 using Moq;
+using NUnit.Framework;
 using Prism.Events;
 using Prism.Regions;
 using System;
@@ -24,19 +25,23 @@ namespace GuiTestSample
         [Given(@"a user types (.*) in a comment")]
         public void GivenAUserTypesInAComment(string comment)
         {
-            var mainVM = new MainWindowViewModel(context.Get<Mock<IRegionManager>>, context.eventMock)
+            var mainVM = new MainWindowViewModel(context.Get<Mock<IRegionManager>>("regionMock").Object, context.Get<Mock<IEventAggregator>>("eventMock").Object);
+            mainVM.CommitMessage = comment;
+            context.Add("mainVM", mainVM);
         }
 
         [When(@"the user clicks commit")]
         public void WhenTheUserClicksCommit()
         {
-            throw new PendingStepException();
+            var mainVM = context.Get<MainWindowViewModel>("mainVM");
+           mainVM.onClickCommit.Execute();
         }
 
         [Then(@"the answer is true")]
         public void ThenTheAnswerIsTrue()
         {
-            throw new PendingStepException();
+            var mainVM = context.Get<MainWindowViewModel>("mainVM");
+            Assert.IsNotNull(mainVM.Output);
         }
         [Given(@"a user is in light mode")]
         public void GivenAUserIsInLightMode()
