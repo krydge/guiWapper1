@@ -69,6 +69,37 @@ namespace GuiTestSample
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 4
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "comment"});
+            table1.AddRow(new string[] {
+                        "hello"});
+            table1.AddRow(new string[] {
+                        "Hello"});
+            table1.AddRow(new string[] {
+                        "Hellow World"});
+            table1.AddRow(new string[] {
+                        "I messed up"});
+#line 5
+testRunner.Given("table", ((string)(null)), table1, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "side",
+                        "answer"});
+            table2.AddRow(new string[] {
+                        "1",
+                        "1"});
+            table2.AddRow(new string[] {
+                        "2",
+                        "4"});
+#line 11
+ testRunner.And("table", ((string)(null)), table2, "And ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("commit a comment")]
         [NUnit.Framework.CategoryAttribute("tag1")]
@@ -76,14 +107,16 @@ namespace GuiTestSample
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("commit a comment", null, new string[] {
                         "tag1"});
-#line 7
+#line 19
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 8
+#line 4
+this.FeatureBackground();
+#line 20
  testRunner.Given("a user types (.*) in a comment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
+#line 21
  testRunner.When("the user clicks commit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
+#line 22
  testRunner.Then("the answer is true", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -96,14 +129,16 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("click Dark Mode", null, new string[] {
                         "tag2"});
-#line 13
+#line 25
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 14
+#line 4
+this.FeatureBackground();
+#line 26
  testRunner.Given("a user is in light mode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 15
+#line 27
  testRunner.When("the user clicks dark mode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 16
+#line 28
  testRunner.Then("the background changes to dark", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -116,15 +151,67 @@ this.ScenarioInitialize(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("click Light Mode", null, new string[] {
                         "tag3"});
-#line 19
+#line 31
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 20
+#line 4
+this.FeatureBackground();
+#line 32
  testRunner.Given("a user is in dark mode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 21
+#line 33
  testRunner.When("the user clicks light mode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 22
+#line 34
  testRunner.Then("the background changes to light", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Enters a comment")]
+        [NUnit.Framework.CategoryAttribute("tag4")]
+        [NUnit.Framework.TestCaseAttribute("hello", null)]
+        public virtual void EntersAComment(string comment, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "tag4"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Enters a comment", null, @__tags);
+#line 37
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line 38
+ testRunner.Given(string.Format("a user enters a {0}", comment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 39
+ testRunner.When("the user clicks commit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 40
+ testRunner.Then("the answer is true", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("find parameter of a square")]
+        [NUnit.Framework.CategoryAttribute("tag5")]
+        public virtual void FindParameterOfASquare()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("find parameter of a square", null, new string[] {
+                        "tag5"});
+#line 48
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line 49
+ testRunner.Given("a user enters <side>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 50
+ testRunner.When("the  user clicks find", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 51
+ testRunner.Then("the  answer is <answer>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

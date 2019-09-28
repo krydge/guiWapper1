@@ -3,13 +3,12 @@ using Moq;
 using NUnit.Framework;
 using Prism.Events;
 using Prism.Regions;
-using System;
 using TechTalk.SpecFlow;
 
 namespace GuiTestSample
 {
     [Binding]
-    public class Feature1Steps { 
+    public class Feature1Steps {
 
 
         private readonly ScenarioContext context;
@@ -43,6 +42,7 @@ namespace GuiTestSample
             var mainVM = context.Get<MainWindowViewModel>("mainVM");
             Assert.IsNotNull(mainVM.Output);
         }
+
         [Given(@"a user is in light mode")]
         public void GivenAUserIsInLightMode()
         {
@@ -77,6 +77,37 @@ namespace GuiTestSample
         public void ThenTheBackgroundChangesToLight()
         {
             throw new PendingStepException();
+        }
+
+
+        [Given(@"a user enters hello")]
+        public void GivenAUserEntersHello()
+        {
+            Assert.Pass();
+        }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        [Given(@"a user enters (.*)")]
+        public void GivenAUserEnters(string side)
+        {
+            var length = int.Parse(side);
+            context.Add("side", length);
+        }
+
+        [When(@"the  user clicks find")]
+        public void WhenTheUserClicksFind()
+        {
+            var num1=context.Get<int>("side");
+            context.Add("actiual", num1 * num1);
+        }
+
+        [Then(@"the  answer is (.*)")]
+        public void ThenTheAnswerIs(string answer)
+        {
+            var expected = int.Parse(answer);
+            var actual = context.Get<int>("actiual");
+            Assert.AreEqual(expected, actual);
         }
 
     }
