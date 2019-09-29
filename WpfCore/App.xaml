@@ -1,9 +1,10 @@
-﻿<Application x:Class="WpfCore.App"
+﻿<prism:PrismApplication x:Class="guiWapper1.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WpfCore"
-             StartupUri="MainWindow.xaml">
-    <Application.Resources>
+             xmlns:local="clr-namespace:guiWapper1"
+             xmlns:prism="http://prismlibrary.com/"
+             >
+    <prism:PrismApplication.Resources>
          
-    </Application.Resources>
-</Application>
+    </prism:PrismApplication.Resources>
+</prism:PrismApplication>

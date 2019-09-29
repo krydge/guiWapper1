@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfCore
+namespace guiWapper1.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ValidationView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ValidationView : UserControl
     {
-        public MainWindow()
+        public ValidationView()
         {
             InitializeComponent();
         }

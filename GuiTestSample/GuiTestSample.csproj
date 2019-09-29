@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\guiWapper1\guiWapper1.csproj" />
+    <ProjectReference Include="..\WpfCore\WpfCore.csproj" />
   </ItemGroup>
 
 </Project>
